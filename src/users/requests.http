@@ -1,0 +1,25 @@
+### Create a new user
+POST http://localhost:3000/auth/signup
+content-type: application/json
+
+{
+    "email": "Test@naver.com",
+    "password": "Test"
+}
+
+### Find a user with an id
+GET http://localhost:3000/auth/2
+
+### Find all users with an email
+GET http://localhost:3000/auth?email=Test@naver.com
+
+### Delete a user with an id
+DELETE http://localhost:3000/auth/1
+
+### Update a user with an id
+PATCH http://localhost:3000/auth/1
+content-type: application/json
+
+{
+    "email": "Test2@naver.com"
+}
