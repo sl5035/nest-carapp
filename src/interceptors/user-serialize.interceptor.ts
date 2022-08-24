@@ -10,10 +10,11 @@ import { UserDto } from '../users/dtos/user.dto';
 
 interface ClassConstructor {
   // For any classes
-  new (...args: any[]): unknown;
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  new (...args: any[]): {};
 }
 
-export function Serialize(
+export function SerializeUser(
   dto: ClassConstructor,
 ): MethodDecorator & ClassDecorator {
   return UseInterceptors(new SerializeInterceptor(dto));

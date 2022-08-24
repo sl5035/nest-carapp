@@ -12,7 +12,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AuthGuard } from '../guards/auth.guard';
-import { Serialize } from '../interceptors/serialize.interceptor';
+import { SerializeUser } from '../interceptors/user-serialize.interceptor';
 import { AuthService } from './auth.service';
 import { CurrentUser } from './decorators/current-user.decorator';
 import { CreateUserDto } from './dtos/create-user.dto';
@@ -22,7 +22,7 @@ import { User } from './entities/user.entity';
 import { UsersService } from './users.service';
 
 @Controller('auth')
-@Serialize(UserDto)
+@SerializeUser(UserDto)
 export class UsersController {
   constructor(
     private readonly usersService: UsersService,
